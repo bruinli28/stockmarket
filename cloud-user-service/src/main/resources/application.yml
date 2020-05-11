@@ -1,0 +1,38 @@
+server:
+   port: 8081
+spring:
+   application:
+      name: cloud-user-service
+   profiles:
+      active: default
+   datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/stockmarket?useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: 123456
+   jpa:
+      hibernate:
+         database-platform: org.hibernate.dialect.MySQLDialect
+         ddl-auto: update
+         show-sql: true
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+eureka:
+   instance:
+      preferIpAddress: true		#注册服务的IP，而不是服务器的名称
+      client: 
+         registerWithEureka: true	#向Eureka注册服务
+         fetchRegistry: true		#拉取注册表的本副本
+         serviceUrl: 
+            defaultZone: http://localhost:8761/eureka/
+#安全配置
+#security:
+#   oauth2:
+#      resource:
+#         id: producer-service
+#         #指定用户信息地址,在生产环境里替换成服务发现来访问
+#         user-info-uri: https://localhost:8901/auth/user
+#         prefer-token-info: false

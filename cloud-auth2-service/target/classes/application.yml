@@ -1,0 +1,33 @@
+#Setting the logging levels for the service
+logging:
+  level:
+    com.netflix: WARN
+    org.springframework.web: DEBUG
+    com.thoughtmechanix: DEBUG
+
+server:
+   port: 8901
+   contextPath: /auth
+   
+spring:
+   application:
+      name: cloud-auth-service
+   datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/stockmarket?useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: 123456
+   jpa:
+      hibernate:
+         database-platform: org.hibernate.dialect.MySQLDialect
+         ddl-auto: update
+         show-sql: true
+         
+eureka:
+   instance:
+      preferIpAddress: true		#注册服务的IP，而不是服务器的名称
+      client: 
+         registerWithEureka: true	#向Eureka注册服务
+         fetchRegistry: true		#拉取注册表的本副本
+         serviceUrl: 
+            defaultZone: http://localhost:8761/eureka/

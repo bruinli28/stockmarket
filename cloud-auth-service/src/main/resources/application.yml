@@ -1,0 +1,29 @@
+server:
+   port: 8901
+   contextPath: /auth
+spring:
+   application:
+      name: cloud-auth-service
+   profiles:
+      active: default
+   datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/stockmarket?useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: 123456
+   jpa:
+      hibernate:
+         database-platform: org.hibernate.dialect.MySQLDialect
+         ddl-auto: update
+         show-sql: true
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+      springframework:
+        security: DEBUG
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
