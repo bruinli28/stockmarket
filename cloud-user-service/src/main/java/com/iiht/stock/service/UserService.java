@@ -9,7 +9,7 @@ import com.iiht.stock.entity.UserEntity;
 public interface UserService {
 
 	/**
-	 * ·ÖÒ³²éÑ¯ÓÃ»§ÁÐ±í
+	 * ï¿½ï¿½Ò³ï¿½ï¿½Ñ¯ï¿½Ã»ï¿½ï¿½Ð±ï¿½
 	 * 
 	 * @param page
 	 * @param pageSize
@@ -18,22 +18,24 @@ public interface UserService {
 	public Page<UserEntity> findAll(int page, int pageSize);
 	
 	/**
-	 * ²éÑ¯ËùÓÐÓÃ»§ÁÐ±í
+	 * ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ð±ï¿½
 	 * 
 	 * @return
 	 */
 	public List<UserEntity> findAllUsers();
 	
 	/**
-	 * ¸ù¾ÝID²éÑ¯Ò»¸öÓÃ»§
+	 * ï¿½ï¿½ï¿½ï¿½IDï¿½ï¿½Ñ¯Ò»ï¿½ï¿½ï¿½Ã»ï¿½
 	 * 
 	 * @param 
 	 * @return
 	 */
 	public UserEntity findUserById(Integer id);
 	
+	public UserEntity findUserByUserName(String userName);
+	
 	/**
-	 * ×¢²áÒ»¸öÓÃ»§
+	 * ×¢ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ã»ï¿½
 	 * 
 	 * @param user
 	 * @return
@@ -41,7 +43,7 @@ public interface UserService {
 	public UserEntity registUser(UserEntity user);
 	
 	/**
-	 * ¸üÐÂÓÃ»§ÐÅÏ¢
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ï¢
 	 * 
 	 * @param user
 	 * @return
@@ -49,7 +51,7 @@ public interface UserService {
 	public UserEntity updateUser(UserEntity user);
 	
 	/**
-	 * ¼¤»îÓÃ»§
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½
 	 * 
 	 * @param id
 	 * @return
@@ -57,7 +59,7 @@ public interface UserService {
 	public UserEntity activeUser(Integer id);
 	
 	/**
-	 * É¾³ýÒ»¸öÓÃ»§
+	 * É¾ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ã»ï¿½
 	 * 
 	 * @param id
 	 */

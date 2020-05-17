@@ -1,4 +1,4 @@
-package com.iiht.stock.repository;
+package com.iiht.stock.auth.repository;
 
 import javax.transaction.Transactional;
 
@@ -8,13 +8,14 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.iiht.stock.entity.UserEntity;
+import com.iiht.stock.auth.entity.UserEntity;
 
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, Integer>{
 	
 	public UserEntity findById(Integer id);
-	public UserEntity findByUserName(String userName);
+	
+	public UserEntity findUserByUserName(String userName);
 	
 	@Modifying
 	@Transactional

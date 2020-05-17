@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import com.iiht.stock.entity.UserEntity;
+import com.iiht.stock.exception.StockBusinessException;
 import com.iiht.stock.repository.UserRepository;
 
 @Service
@@ -23,21 +24,31 @@ public class UserBusiness implements UserService{
 		return userRepository.findById(id);
 	}
 	
+	public UserEntity findUserByUserName(String userName){
+		return userRepository.findByUserName(userName);
+	}
+	
 	public List<UserEntity> findAllUsers(){
 		return userRepository.findAll();
 	}
 	
-	/**
-	 * ����һ��USER��
-	 */
+
 	public UserEntity registUser(UserEntity user){
-		return userRepository.saveAndFlush(user);
+		throw new StockBusinessException("500001", "Failed to regist user.");
+//		return userRepository.saveAndFlush(user);
 	}
 
+
 	/**
-	 * ����USER��Ϣ��JPA����ID�������޸ģ�
+	 * 
+	 * 创建或者更新一个用户
+	 *  
+	 * @author bruin.li  
+	 * @param user
+	 * @return  
+	 * @since JDK 1.6
 	 */
-	public UserEntity update(UserEntity user) {
+	public UserEntity createUser(UserEntity user) {
 		return userRepository.save(user);
 	}
 

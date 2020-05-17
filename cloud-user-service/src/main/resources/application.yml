@@ -29,10 +29,10 @@ eureka:
          serviceUrl: 
             defaultZone: http://localhost:8761/eureka/
 #安全配置
-#security:
-#   oauth2:
-#      resource:
-#         id: producer-service
-#         #指定用户信息地址,在生产环境里替换成服务发现来访问
-#         user-info-uri: https://localhost:8901/auth/user
-#         prefer-token-info: false
+security:
+   oauth2:
+      resource:
+         id: producer-service
+         #指定用户信息地址,在生产环境里替换成服务发现来访问
+         user-info-uri: https://localhost:8901/auth/user
+         prefer-token-info: false
