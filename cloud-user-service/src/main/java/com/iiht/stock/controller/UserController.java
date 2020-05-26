@@ -18,10 +18,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.iiht.stock.entity.CompanyEntity;
 import com.iiht.stock.entity.UserEntity;
 import com.iiht.stock.entity.UserModel;
 import com.iiht.stock.exception.StockEXConstants;
 import com.iiht.stock.exception.StockRequestException;
+import com.iiht.stock.service.CompanyServiceClient;
 import com.iiht.stock.service.UserService;
 
 /**
@@ -41,17 +43,23 @@ import com.iiht.stock.service.UserService;
 public class UserController {
 	@Autowired
 	private UserService userService;
-
+//	@Autowired
+//	private CompanyServiceClient companyServiceClient;
+	
 	/**
 	 * 
 	 * @return
 	 */
 	@GetMapping
 	public List<UserEntity> findAllUsers() {
-
 		return userService.findAllUsers();
 	}
 
+//	@GetMapping("/company/{id}")
+//	public CompanyEntity findCompany(Long id){
+//		return companyServiceClient.queryCompanyEntityById(id);
+//	}
+	
 	@PostMapping
 	public ResponseEntity<UserEntity> regist(@RequestBody @Valid UserModel user, BindingResult bindingResult) {
 		if(bindingResult.hasErrors()){

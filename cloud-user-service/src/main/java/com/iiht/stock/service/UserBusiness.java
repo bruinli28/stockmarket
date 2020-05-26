@@ -5,16 +5,23 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
+import com.iiht.stock.entity.CompanyEntity;
 import com.iiht.stock.entity.UserEntity;
 import com.iiht.stock.exception.StockBusinessException;
 import com.iiht.stock.repository.UserRepository;
+import com.iiht.stock.result.CommonResult;
 
 @Service
 public class UserBusiness implements UserService{
 	@Autowired
 	private UserRepository userRepository;
+	@Autowired
+	private RestTemplate restTemplate;
 
+	final String SERVICE_NAME = "cloud-company-service";
+	
 	public Page<UserEntity> findAll(int page, int pageSize) {
 		// TODO Auto-generated method stub
 		return null;
@@ -29,6 +36,9 @@ public class UserBusiness implements UserService{
 	}
 	
 	public List<UserEntity> findAllUsers(){
+		CommonResult<CompanyEntity> result = restTemplate.getForObject("http://cloud-company-service/api/company/1", CommonResult.class);
+		System.out.println("entity name: " + result.getResultBody().getName());
+		
 		return userRepository.findAll();
 	}
 	
