@@ -10,16 +10,16 @@
 2.	url at which the project is deployed and can be accessed
 3.	any other specific inputs for Evaluation
 
-##安装要求
+## 安装要求
 JDK1.8及以上
 Maven3及以上
 MySQL5.7.19
 Tomcat7及以上
 
-##安装步骤（部署）
+## 安装步骤（部署）
 
-##测试运行
+## 测试运行
 
-##注意事项
+## 注意事项
 
-##使用技术
+## 使用技术
